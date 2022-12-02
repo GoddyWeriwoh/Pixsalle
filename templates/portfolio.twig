@@ -1,0 +1,34 @@
+{% extends "customBase.twig" %}
+
+
+{% block title %}Portfolio | PixSalle{% endblock %}
+{% block head %}{% endblock %}
+{% block style %}
+<style>
+    input {
+        background-color: #C5C6C7;
+        min-height: 1.5vw;
+        border: none;
+        margin: 3px;
+    }
+    input:focus{
+        border: none;
+        outline: none;
+        color: #66FCF1; 
+    }
+    input:hover{
+        color: #66FCF1;
+    }
+</style>
+{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+    <h1>Welcome to your Portfolio: {{ portName }}</h1>
+    {% if noPort == true %}
+    <form action="/portfolio" method="get">
+        <input type="text" name="name" placeholder="Enter name of portfolio">
+        <input type="submit" value="Start a portfolio">
+    </form>
+    {% endif %}
+{% endblock %}
+{% block footer %}{% endblock %}

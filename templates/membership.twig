@@ -1,0 +1,45 @@
+{% extends "customBase.twig" %}
+
+
+{% block title %}Membership | PixSalle{% endblock %}
+{% block head %}{% endblock %}
+{% block style %}
+    <style>
+        input {
+            background-color: #C5C6C7;
+            min-height: 1.5vw;
+            border: none;
+            margin: 3px;
+        }
+        input:focus{
+            border: none;
+            outline: none;
+            color: #66FCF1; 
+        }
+        input:hover{
+            color: #66FCF1;
+        }
+        .sub{
+            background-color: transparent;
+        }
+        .err{
+            color: red;
+            margin: 3px;
+        }
+    </style>
+{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+    <h1>Membership: {{ currMem }}</h1>
+    {% if toggMem == true %}
+        <form action="/user/membership" method="post">
+            <input type="submit" name="newMem" value="Change to Cool Membership">
+        </form>
+    {% endif %}
+    {% if toggMem == false %}
+        <form action="/user/membership" method="post">
+            <input type="submit" name="newMem" value="Change to Active Membership">
+        </form>
+    {% endif %}
+{% endblock %}
+{% block footer %}{% endblock %}

@@ -1,0 +1,9 @@
+http://localhost:8030/api/blog
+Accept:
+
+###
+GET http://localhost:8030/api/blog
+//Accept: application/json
+
+###
+GET http://localhost:8030/api/blog/{id}

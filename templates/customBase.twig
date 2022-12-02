@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body>
+    <style>
+        html{
+            height: 100%;
+        }
+
+        body {
+            background-color: #0B0C10;
+            color: #C5C6C7;
+            height: 100%;
+        }
+
+        main{
+            padding-top: 2vw;
+            padding-left: 1vw;
+        }
+
+        .navContainer{
+            position: fixed;
+            display: flex;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+            background-color: #f6f6f6;
+            transition-duration: 500ms;
+            flex-direction: row;
+            align-items: center;
+            width: 100vw;
+            opacity: 80%;
+            background-color: #0B0C10;
+            min-height: 2vw;
+        }
+        .navContainer:hover{
+            background-color: #1F2833;
+            opacity: 100%;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+        }
+
+        .navOptions{
+            margin-left: 1vw;
+            align-self: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .navOp{
+            display: flex;
+            margin-right: 2vw;
+            transition-duration: 500ms;
+            cursor: pointer;
+        }
+
+        .navOp input{
+            border: none;
+            background-color: transparent;
+            color: #C5C6C7;
+        }
+        .navOp input:hover{
+            color: #66FCF1;
+        }
+
+        .navOp:hover{
+            color: #d2201c;
+            background-color: transparent;
+        }
+        .navOp h4{
+            font-size: 15px;
+        }
+        .navOp select{
+            background-color: transparent;
+            border: none;
+            color: #000000;
+        }
+        .navOp select:hover{
+            color: #d2201c;
+        }
+
+        main {
+            min-height: 100%;
+            margin-bottom: -50px;
+        }
+
+        footer{
+            height: 50px;
+        }
+    </style>
+    {% block style %}{% endblock %}
+    <header>
+    <div class="navContainer">
+        <div class="navOptions">
+            <form class="navOp" action="/" method="GET"><input type="submit" value="Landing"></form>
+            <form class="navOp" action="/sign-in" method="GET"><input type="submit" value="Login"></form>
+            <form class="navOp" action="/sign-up" method="GET"><input type="submit" value="Register"></form>
+            <form class="navOp" action="/profile" method="GET"><input type="submit" value="Profile"></form>
+            <form class="navOp" action="/user/wallet" method="GET"><input type="submit" value="Wallet"></form>
+            <form class="navOp" action="/user/membership" method="GET"><input type="submit" value="Memberships"></form>
+            <form class="navOp" action="/explore" method="GET"><input type="submit" value="Explore"></form>
+            <form class="navOp" action="/portfolio" method="GET"><input type="submit" value="Portfolio"></form>
+            <form class="navOp" action="/blog" method="GET"><input type="submit" value="Blogs"></form>
+        </div>
+    </div>
+    {% block header %}{% endblock %}
+    </header>
+    <main>{% block content %}{% endblock %}</main>
+    <footer><p>This is a copyright notice</p>
+    {% block footer %}{% endblock %}
+    </footer>
+  </body>
+</html>

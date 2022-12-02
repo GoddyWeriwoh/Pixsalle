@@ -1,0 +1,54 @@
+{% extends "customBase.twig" %}
+
+{% block title %}Blog | PixSalle{% endblock %}
+{% block head %}{% endblock %}
+{% block style %}
+    <style>
+        input {
+            background-color: #C5C6C7;
+            min-height: 1.5vw;
+            border: none;
+            margin: 3px;
+        }
+        input:focus{
+            border: none;
+            outline: none;
+            color: black;
+        }
+        input:hover{
+            color: #66FCF1;
+        }
+        .blogForm{
+            display: flex;
+            flex-direction: column;
+            width: 20.5vw;
+        }
+        #contentID{
+            height: 40vh;
+        }
+        .blog_elements{
+            margin-bottom: 10vh;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            background-color: #66FCF1;
+        }
+
+    </style>
+{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+    <h1>All Blogs</h1>
+    <ul>
+        {% for key, blog in blogs %}
+            <div class="blog_elements">
+                <li>{{ blog.title|e }}</li>
+                <li><a href="/blog/{{ blog.id }}">View more of {{ blog.title }}</a></li>
+            </div>
+        {% endfor %}
+    </ul>
+<h1>{{ errors.login}}</h1>
+{% endblock %}

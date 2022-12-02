@@ -1,0 +1,12 @@
+{% extends "customBase.twig" %}
+
+{% block title %}Wallet | PixSalle{% endblock %}
+
+{% block content %}
+    <h1>Welcome to PixSalle</h1>
+    <form data-cy="sign-in" action="{{ url_for("add_To_Wallet") }}" method="POST">
+        <h2 name = "current_amount"> {{ money_amount.amount }} €</h2>
+        <input type="text" name="money" placeholder="Enter the amount to add">
+        <button class = "but" type="submit">Add to wallet</button>
+    </form>
+{% endblock %}

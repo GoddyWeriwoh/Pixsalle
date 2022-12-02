@@ -1,0 +1,28 @@
+
+{% extends "customBase.twig" %}
+
+{% block title %}Sign-up | PixSalle{% endblock %}
+
+{% block style %}
+  <style>
+    input {
+      background-color: #C5C6C7;
+      min-height: 1vw;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+    <h1>Sign up here!</h1>
+    <form data-cy="sign-up" action="{{ formAction }}" method="POST">
+      <input data-cy="sign-up__email" type="text" name="email" placeholder="Enter your email">
+      {% if formErrors['email'] %}
+        <p data-cy="sign-up__wrongEmail">{{ formErrors['email'] }}</p>
+      {% endif %}
+      <input data-cy="sign-up__password" type="password" name="password" placeholder="Enter your password">
+      {% if formErrors['password'] %}
+        <p data-cy="sign-up__wrongPassword">{{ formErrors['password'] }}</p>
+      {% endif %}
+      <input data-cy="sign-up__btn" type="submit" value="Sign-up">
+    </form>
+{% endblock %}

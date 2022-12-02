@@ -1,0 +1,50 @@
+{% extends "customBase.twig" %}
+
+
+{% block title %}Profile | PixSalle{% endblock %}
+{% block head %}{% endblock %}
+{% block style %}
+    <style>
+    input {
+        background-color: #C5C6C7;
+        min-height: 1.5vw;
+        border: none;
+        margin: 3px;
+    }
+    input:focus{
+        border: none;
+        outline: none;
+        color: #66FCF1; 
+    }
+    input:hover{
+        color: #66FCF1;
+    }
+    .sub{
+        background-color: transparent;
+    }
+    .err{
+        color: red;
+        margin: 3px;
+    }
+    </style>
+{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+    <h1>Profile</h1>
+    {% if toggPhoto == true %}
+        <img src="{{ photo }}" alt="Profile picture">
+    {% endif %}
+    <form action="/profile" method="post" enctype="multipart/form-data">
+        <input type="text" placeholder="Enter username" value="{{ username }}" name="usr" id="usr"></br>
+        <input type="text" placeholder="Enter email" value="{{ email }}" name="email" id="email" disabled></br>
+        <input type="text" placeholder="Enter phone number" value="{{ phone }}" name="phone" id="phone"></br>
+        <input class="sub" type="file" name="photo" id="photo" value="{{ photo }}"></br>
+        <p class=err>{{ errImg }}</p>
+        <p class=err>{{ errPhone }}</p>
+        <input type="submit" name="up" value="Update">
+    </form>
+    <form action="/profile/changePassword" method="get">
+        <input type="submit" name="cPass" value="Change password">
+    </form>
+{% endblock %}
+{% block footer %}{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "customBase.twig" %}
+
+
+{% block title %}Explore | PixSalle{% endblock %}
+{% block head %}{% endblock %}
+{% block style %}
+    <style>
+        .container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(auto-fill, 370px);
+            grid-row-gap: .5em;
+            grid-column-gap: 1em;
+            margin-top: 20px;
+        }
+
+        .container .item {
+            text-align: center;
+        }
+
+    </style>
+{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+    <h1>Explore</h1>
+    <form action="/explore" method="post">
+        <label>It is here only for testing purposes</label></br>
+        <input type="text" name="url" placeholder="Enter the url">
+        <input type="submit" name="newMem" value="Upload Photo">
+    </form>
+    <div class="container">
+        {% if pics != null %}
+            {% for pic in pics %}
+            <div class="item">
+                <img src="{{ pic.url }}" alt="" width="300" height="300">
+                <h3>{{ pic.usr }}</h3>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
+{% block footer %}{% endblock %}
